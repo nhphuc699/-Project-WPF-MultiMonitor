@@ -10,6 +10,7 @@
         <StackPanel Orientation="Horizontal">
             <TextBox Width="100" Name="txtNumberScreen" VerticalAlignment="Top" HorizontalAlignment="Left"/>
             <Button Content="Chuyển" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click"/>
+            <Button Content="Go Ro Primary" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Button_Click_1"/>
         </StackPanel>
     </Border>
 </Window>

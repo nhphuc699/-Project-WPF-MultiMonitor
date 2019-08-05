@@ -31,19 +31,19 @@ namespace _Project__WPF_MultiMonitor
         private void Window_ContentRendered(object sender, EventArgs e)
         {
             screens = new List<Screen>(Screen.AllScreens);
-            var Item = GetScreen(1);
-            if(Item != null)
-            {
-                Left = Item.Bounds.Left;
-                Top = Item.Bounds.Top;
-                //WindowState = WindowState.Maximized;
+            //var Item = GetScreen(1);
+            //if(Item != null)
+            //{
+            //    Left = Item.Bounds.Left;
+            //    Top = Item.Bounds.Top;
+            //    //WindowState = WindowState.Maximized;
                 
-                //Width = Item.Bounds.Width;
-                //Height = Item.Bounds.Height;
-            }
+            //    //Width = Item.Bounds.Width;
+            //    //Height = Item.Bounds.Height;
+            //}
             foreach (var item in screens)
             {
-                if(ScreenInterrogatory.MonitorDevicePath(item) == @"\\?\DISPLAY#LEN40A0#4&22455467&0&UID67568640#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}")// @"\\?\DISPLAY#HWP285A#4&22455467&0&UID16843008#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}")
+                if(item.Primary)//ScreenInterrogatory.MonitorDevicePath(item) == @"\\?\DISPLAY#LEN40A0#4&22455467&0&UID67568640#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}")// @"\\?\DISPLAY#HWP285A#4&22455467&0&UID16843008#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}")
                 {
                     Left = item.Bounds.Left;
                     Top = item.Bounds.Top;
@@ -85,6 +85,20 @@ namespace _Project__WPF_MultiMonitor
                 }
                 WindowState = WindowState.Maximized;
                 
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            screens = new List<Screen>(Screen.AllScreens);
+            foreach (var item in screens)
+            {
+                if (item.Primary)//ScreenInterrogatory.MonitorDevicePath(item) == @"\\?\DISPLAY#LEN40A0#4&22455467&0&UID67568640#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}")// @"\\?\DISPLAY#HWP285A#4&22455467&0&UID16843008#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}")
+                {
+                    Left = item.Bounds.Left;
+                    Top = item.Bounds.Top;
+                    WindowState = WindowState.Maximized;
+                }
             }
         }
     }
